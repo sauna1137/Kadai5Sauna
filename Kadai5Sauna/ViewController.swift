@@ -23,9 +23,13 @@ class ViewController: UIViewController {
     }
 
     private func calculateResult() {
-        guard let num1 = Double(textFields[0].text!),
-              let num2 = Double(textFields[1].text!) else {
-            showAlert(irregulerStrings: "notEntered")
+        guard let num1 = Double(textFields[0].text!) else {
+            showAlert(irregulerStrings: "notEnteredNum1")
+            return
+        }
+
+        guard let num2 = Double(textFields[1].text!) else {
+            showAlert(irregulerStrings: "notEnteredNum2")
             return
         }
 
@@ -43,13 +47,19 @@ class ViewController: UIViewController {
     private func showAlert(irregulerStrings: String) {
         switch irregulerStrings {
         case "num2==0":
-            let alertController = UIAlertController(title: "課題2", message: "割る数に0を入力しないでください", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "課題5", message: "割る数に0を入力しないでください", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default)
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion: nil)
 
-        case "notEntered":
-            let alertController = UIAlertController(title: "課題2", message: "数字を入力してください", preferredStyle: .alert)
+        case "notEnteredNum1":
+            let alertController = UIAlertController(title: "課題5", message: "割られる数を入力して下さい", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+
+        case "notEnteredNum2":
+            let alertController = UIAlertController(title: "課題5", message: "割る数を入力して下さい", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default)
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion: nil)
